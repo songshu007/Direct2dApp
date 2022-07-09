@@ -16,16 +16,7 @@ D2dApp->initD2d();
 ```
 它返回一个值代表初始化失败与否
 
-之后只需要在你的`WM_POINT`里绘制就行了，示例如下
-```
-D2dApp->BeginDraw();
-
-D2dApp->Clear(D2D1::ColorF(D2D1::ColorF::White));
-D2dApp->draw(m_Rect);
-
-D2dApp->EndDraw();
-```
-不过我不建议在`WM_POINT`消息里绘制，最好将消息循环改成下面这样
+将消息循环改成下面这样
 ```
 while (1)
 	{
@@ -42,4 +33,17 @@ while (1)
 		}
 	}
 ```
+绘制的内容：
+```
+D2dApp->BeginDraw();
 
+D2dApp->Clear(D2D1::ColorF(D2D1::ColorF::White));
+D2dApp->draw(m_Rect);
+
+D2dApp->EndDraw();
+```
+不建议在`WM_PAINT`消息里绘制，虽然微软说d2d只能在`WM_PAINT`消息里绘制，但是我实测不在该消息也可以
+
+所以需要你自己实现Win32的窗口，代码示例请在`example`里查看
+
+目前该库只有一个矩形类可以画，如果想要画其它图形，请让图形继承`Drawable`类，并实现`draw`方法，我后续也会持续更新
