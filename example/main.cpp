@@ -3,8 +3,6 @@
 
 Direct2dApp* D2dApp;
 Rectshape* m_Rect;
-CircleShape* m_Circle1;
-CircleShape* m_Circle2;
 HANDLE OutPutHandle;
 float angle = 0.0f;
 
@@ -19,7 +17,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	}break;
 	case WM_CREATE:
 	{
-		/*³õÊ¼»¯ ¾ØÐÎ*/
+		/*åˆå§‹åŒ– çŸ©å½¢*/
 		m_Rect = new Rectshape();
 		m_Rect->setSize(D2D1::Point2F(150, 100));
 		m_Rect->setPosition(D2D1::Point2F(100, 100));
@@ -29,35 +27,15 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		m_Rect->setFrameColor(D2D1::ColorF(D2D1::ColorF::Blue, 1.0f));
 		m_Rect->setFillColor(D2D1::ColorF(D2D1::ColorF::LightBlue, 0.5f));
 
-		/*³õÊ¼»¯ ÍÖÔ²*/
-		m_Circle1 = new CircleShape();
-		m_Circle1->setPosition(D2D1::Point2F(120, 100));
-		m_Circle1->setCenterPos(D2D1::Point2F(-20.0f, 0.0f));
-		m_Circle1->setRadius(50, 50);
-		m_Circle1->setFrameWidth(5.0f);
-		m_Circle1->setFrameColor(D2D1::ColorF(D2D1::ColorF::Blue, 1.0f));
-		m_Circle1->setFillColor(D2D1::ColorF(D2D1::ColorF::LightGreen, 0.5f));
-		m_Circle1->setAngle(angle);
-
-		m_Circle2 = new CircleShape();
-		m_Circle2->setPosition(D2D1::Point2F(80, 100));
-		m_Circle2->setCenterPos(D2D1::Point2F(20.0f, 0.0f));
-		m_Circle2->setRadius(50, 50);
-		m_Circle2->setFrameWidth(5.0f);
-		m_Circle2->setFrameColor(D2D1::ColorF(D2D1::ColorF::Blue, 1.0f));
-		m_Circle2->setFillColor(D2D1::ColorF(D2D1::ColorF::LightGreen, 0.5f));
-		m_Circle2->setAngle(angle);
-
 		D2dApp = new Direct2dApp(hwnd);
-
 		if (D2dApp->initD2d() == false)
 		{
-			PRINTF(L"D2D³õÊ¼»¯Ê§°Ü£¡\n", OutPutHandle);
+			PRINTF(L"D2Dåˆå§‹åŒ–å¤±è´¥ï¼\n", OutPutHandle);
 			PostQuitMessage(0);
 		}
 		else 
 		{
-			PRINTF(L"D2D³õÊ¼»¯³É¹¦£¡\n", OutPutHandle);
+			PRINTF(L"D2Dåˆå§‹åŒ–æˆåŠŸï¼\n", OutPutHandle);
 		}
 	}break;
 	case WM_PAINT:
@@ -86,20 +64,20 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	wic.cbSize = sizeof(WNDCLASSEX);
 	wic.hIcon = NULL;
 	wic.hIconSm = NULL;
-	wic.hCursor = LoadCursor(0, IDC_ARROW);	// ¹â±ê
+	wic.hCursor = LoadCursor(0, IDC_ARROW);	// å…‰æ ‡
 	wic.hInstance = hInstance;
-	wic.lpszClassName = __TEXT("Hello");//´°¿ÚÀàÃû
-	wic.lpfnWndProc = WindowProc;//Ö¸Ã÷ÏûÏ¢´¦Àíº¯Êý
-	wic.lpszMenuName = NULL;//Ã»ÓÐÖ¸Ã÷²Ëµ¥Ïî
-	wic.cbClsExtra = 0;//ÔÚ´°¿ÚÀàºóÃ»ÓÐÀ©Õ¹×Ö½Ú
-	wic.cbWndExtra = 0;//½á¹¹»òÕßÊÇ´°¿ÚÊµÀý
+	wic.lpszClassName = __TEXT("Hello");//çª—å£ç±»å
+	wic.lpfnWndProc = WindowProc;//æŒ‡æ˜Žæ¶ˆæ¯å¤„ç†å‡½æ•°
+	wic.lpszMenuName = NULL;//æ²¡æœ‰æŒ‡æ˜Žèœå•é¡¹
+	wic.cbClsExtra = 0;//åœ¨çª—å£ç±»åŽæ²¡æœ‰æ‰©å±•å­—èŠ‚
+	wic.cbWndExtra = 0;//ç»“æž„æˆ–è€…æ˜¯çª—å£å®žä¾‹
 	wic.style = CS_HREDRAW | CS_VREDRAW;
-	wic.hbrBackground = (HBRUSH)(COLOR_MENU);// ±³¾°ÑÕÉ«
+	wic.hbrBackground = (HBRUSH)(COLOR_MENU);// èƒŒæ™¯é¢œè‰²
 
 	if (!RegisterClassEx(&wic))
 		return 0;
 
-	hwnd = CreateWindowEx(0, __TEXT("Hello"), __TEXT("Test"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 800, 600, NULL, NULL, hInstance, NULL/*¸½¼ÓÏûÏ¢*/);
+	hwnd = CreateWindowEx(0, __TEXT("Hello"), __TEXT("Test"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 800, 600, NULL, NULL, hInstance, NULL/*é™„åŠ æ¶ˆæ¯*/);
 
 	ShowWindow(hwnd, SW_SHOW);
 	UpdateWindow(hwnd);
@@ -116,20 +94,16 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		}
 		else
 		{
-			// ÔÚÕâÀï»æÖÆ
+			// åœ¨è¿™é‡Œç»˜åˆ¶
 			Sleep(1000 / 60);
 			D2dApp->BeginDraw();
 
 			D2dApp->Clear(D2D1::ColorF(D2D1::ColorF::AliceBlue, 1.0f));
 			D2dApp->draw(m_Rect);
-			D2dApp->draw(m_Circle1);
-			D2dApp->draw(m_Circle2);
 
 			D2dApp->EndDraw();
 
-			//m_Rect->setAngle(angle);
-			m_Circle1->setAngle(angle);
-			m_Circle2->setAngle(angle);
+			m_Rect->setAngle(angle);
 			angle += 0.5f;
 		}
 	}
