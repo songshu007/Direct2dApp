@@ -46,10 +46,14 @@ D2dApp->EndDraw();
 
 所以需要你自己实现Win32的窗口，代码示例请在`example`里查看
 
-`example`中只有一个`main.cpp`请将`main.cpp`和`Direct2dApp`目录放在同一个文件夹下，以让它们正确包含
+`example`中只有一个`main.cpp`注意`main.cpp`的第一行代码：
+```
+#include "./Direct2dApp/Direct2dApp.h"
+```
+`Direct2dApp.h`在该存储库的`/Direct2dApp/`目录下，请让它们正确包含，该示例将不会再次更新，因为它只是一个示例，
 
-目前该库只有一个矩形类可以画，如果想要画其它图形，请让图形继承`Drawable`类，并实现`draw`方法，我后续也会持续更新
+如果想要实现画其它库中没有的图形，请让图形继承`Drawable`类，并实现`draw`方法，我后续也会持续更新
 
 2022-7-9 该库新增了圆形
 
-更多改动请在 Log 里查看：[点我](./Log/Log.md)
+更多改动请在 Log 里查看：[点我直达](./Log/Log.md)
