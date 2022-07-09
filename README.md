@@ -20,7 +20,7 @@ D2dApp->initD2d();
 ```
 D2dApp->BeginDraw();
 
-D2dApp->Clear(D2D1::ColorF(D2D1::ColorF::AliceBlue, 0.5f));
+D2dApp->Clear(D2D1::ColorF(D2D1::ColorF::White));
 D2dApp->draw(m_Rect);
 
 D2dApp->EndDraw();
