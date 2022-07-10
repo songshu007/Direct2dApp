@@ -18,3 +18,7 @@ Direct2dApp(HWND hwnd);
 所有的图形类，包括图形的`Drawable`基类都放到了`Direct2dApp/Shape/`目录下
 
 `Direct2dApp`类则在`Direct2dApp/`目录下
+
+#### 2022-7-10-10-30（上午）
+
+把该库加到了`app`命名空间下
