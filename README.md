@@ -4,6 +4,11 @@
 # How Use?
 只需在你的代码里`#include "Direct2dApp.h"`即可使用
 
+然后使用`app`命名空间，库的所有功能都在`app`命名空间下
+```
+using namespace app;
+```
+
 首先需要定义一个 App 对象
 ```
 Direct2dApp* D2dApp;
