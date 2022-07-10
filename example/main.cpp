@@ -1,6 +1,8 @@
 #include "./Direct2dApp/Direct2dApp.h"
 #pragma comment(lib, "d2d1.lib")
 
+using namespace app;
+
 Direct2dApp* D2dApp;
 Rectshape* m_Rect;
 HANDLE OutPutHandle;
