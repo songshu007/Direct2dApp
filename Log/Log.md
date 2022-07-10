@@ -1,6 +1,6 @@
 ## Log 日志
 
-### 2022-7-9-11-29（下午）
+## 2022-7-9-11-29（下午）
 
 添加了`CircleShape`类，用来画圆，声明在`CircleShape.h`实现在`CircleShape.cpp`
 
@@ -19,6 +19,6 @@ Direct2dApp(HWND hwnd);
 
 `Direct2dApp`类则在`Direct2dApp/`目录下
 
-### 2022-7-10-10-30（上午）
+## 2022-7-10-10-30（上午）
 
 把该库加到了`app`命名空间下
